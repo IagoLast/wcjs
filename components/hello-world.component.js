@@ -1,10 +1,19 @@
 class HelloWorld extends WC {
-  static get observedAttributes() {
-    return ['name'];
+  get isShadow() {
+    return true;
+  }
+
+  get style() {
+    return `
+        h1 {
+          color: #222;
+          font-weight: 100;
+        }
+    `;
   }
 
   get template() {
-    return `<h1>hello ${this.getAttribute('name')}</h1>`;
+    return `${super.insertStyle()} <h1>Hello Web Components!</h1>`;
   }
 }
 

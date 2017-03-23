@@ -14,8 +14,7 @@ class WC extends HTMLElement {
   }
 
   get content() {
-    let content = this.shadow || this;
-    return content.innerHTML;
+    return this.shadow || this;
   }
 
   get initialState() {
@@ -58,6 +57,13 @@ class WC extends HTMLElement {
 
   render() {
     this.content = this.template;
+  }
+
+  insertStyle() {
+    if (!this.isShadow) {
+      console.warn('Inline styles can collide when not using shadowed elements.');
+    }
+    return `<style>${this.style}</style>`
   }
 }
 
