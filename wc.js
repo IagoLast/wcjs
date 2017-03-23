@@ -1,12 +1,31 @@
 class WC extends HTMLElement {
 
+  get template() {
+    return '';
+  }
+
+  get isShadow() {
+    return false;
+  }
+
+  set content(value) {
+    let content = this.shadow || this;
+    content.innerHTML = value;
+  }
+
+  get content() {
+    let content = this.shadow || this;
+    return content.innerHTML;
+  }
+
   constructor() {
     super();
     console.info('constructor', this);
-  }
-
-  get template() {
-    return '';
+    if (this.isShadow) {
+      this.shadow = this.attachShadow({
+        mode: 'open'
+      });
+    }
   }
 
   connectedCallback() {
@@ -27,7 +46,7 @@ class WC extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = this.template;
+    this.content = this.template;
   }
 }
 
