@@ -1,16 +1,10 @@
 class HelloWorld extends WC {
-  constructor() {
-    super();
-  }
-
-  get initialState() {
-    return {
-      name: 'world'
-    }
+  static get observedAttributes() {
+    return ['name'];
   }
 
   get template() {
-    return `<h1>hello ${this.state.name}</h1>`;
+    return `<h1>hello ${this.getAttribute('name')}</h1>`;
   }
 }
 

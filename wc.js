@@ -44,6 +44,7 @@ class WC extends HTMLElement {
 
   attributeChangedCallback(attributeName, oldValue, newValue, namespace) {
     console.info('attributeChangedCallback', this);
+    this.render();
   }
 
   adoptedCallback() {
