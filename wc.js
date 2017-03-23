@@ -18,6 +18,10 @@ class WC extends HTMLElement {
     return content.innerHTML;
   }
 
+  get initialState() {
+    return {};
+  }
+
   constructor() {
     super();
     console.info('constructor', this);
@@ -26,6 +30,7 @@ class WC extends HTMLElement {
         mode: 'open'
       });
     }
+    this.state = Object.freeze(this.initialState);
   }
 
   connectedCallback() {
@@ -43,6 +48,11 @@ class WC extends HTMLElement {
 
   adoptedCallback() {
     console.info('adoptedCallback', this);
+  }
+
+  setState(state) {
+    this.state = state;
+    this.render();
   }
 
   render() {

@@ -1,9 +1,16 @@
 class HelloWorld extends WC {
-  get isShadow() {
-    return true;
+  constructor() {
+    super();
   }
+
+  get initialState() {
+    return {
+      name: 'world'
+    }
+  }
+
   get template() {
-    return '<h1>hello world</h1>';
+    return `<h1>hello ${this.state.name}</h1>`;
   }
 }
 
