@@ -1,11 +1,17 @@
 class WC extends HTMLElement {
+
   constructor() {
     super();
     console.info('constructor', this);
   }
 
+  get template() {
+    return '';
+  }
+
   connectedCallback() {
     console.info('connectedCallback', this);
+    this.render();
   }
 
   disconnectedCallback() {
@@ -18,6 +24,10 @@ class WC extends HTMLElement {
 
   adoptedCallback() {
     console.info('adoptedCallback', this);
+  }
+
+  render() {
+    this.innerHTML = this.template;
   }
 }
 
