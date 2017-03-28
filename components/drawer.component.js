@@ -8,9 +8,7 @@ class WcDrawer extends WC {
   }
 
   get initialState() {
-    return {
-      visible: false
-    }
+    return store.getState().drawer;
   }
 
   get template() {
@@ -18,9 +16,9 @@ class WcDrawer extends WC {
       ${this.insertStyle()}
       <header> Menu </header>
       <nav>
-        <a href="#"> Home </a>
-        <a href="#"> About </a>
-        <a href="#"> Shop </a>
+        <a home href="#"> Home </a>
+        <a about href="#"> About </a>
+        <a blog href="#"> Blog </a>
         <br>
         <a href="#"> Close </a>
       </nav>
@@ -67,6 +65,15 @@ class WcDrawer extends WC {
     `
   }
 
+  constructor() {
+    super();
+    store.subscribe(this.mapState.bind(this));
+  }
+
+  mapState() {
+    this.setState(store.getState().drawer);
+  }
+
   render() {
     if (this.state.visible && !this.classList.contains('visible')) {
       this.classList.add('visible');
@@ -80,18 +87,36 @@ class WcDrawer extends WC {
     this.content = this.template;
     this.render();
     this.content.querySelector('a:last-child').addEventListener('click', this.close.bind(this));
+    this.content.querySelector('a[home]').addEventListener('click', () => {
+      store.dispatch({
+        type: 'CHANGE_TAB',
+        value: 'home'
+      })
+    });
+    this.content.querySelector('a[about]').addEventListener('click', () => {
+      store.dispatch({
+        type: 'CHANGE_TAB',
+        value: 'about'
+      });
+    });
+    this.content.querySelector('a[blog]').addEventListener('click', () => {
+      store.dispatch({
+        type: 'CHANGE_TAB',
+        value: 'blog'
+      })
+    });
   }
 
   close() {
-    this.setState({
-      visible: false,
-    })
+    store.dispatch({
+      type: 'HIDE_DRAWER'
+    });
   }
 
   open() {
-    this.setState({
-      visible: true,
-    })
+    store.dispatch({
+      type: 'SHOW_DRAWER'
+    });
   }
 }
 

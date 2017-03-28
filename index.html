@@ -15,8 +15,9 @@
       margin: 0;
       padding: 0;
     }
-
   </style>
+  <!--Load Redux-->
+  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
   <!--Load "library"-->
   <script src="wc.js"></script>
   <!--Load custom elements-->
@@ -27,7 +28,42 @@
   <script src="components/drawer.component.js"></script>
   <script src="components/main.component.js"></script>
 </head>
-<script></script>
+<script>
+  function DrawerReducer(state = { visible: false }, action) {
+    switch (action.type) {
+      case 'SHOW_DRAWER':
+        return {
+          visible: true,
+        }
+      case 'HIDE_DRAWER':
+      case 'CHANGE_TAB': //hack to improve UX
+        return {
+          visible: false,
+        }
+      default:
+        return state;
+    }
+  }
+
+  function MainReducer(state = {
+    title: 'home',
+  }, action) {
+    switch (action.type) {
+      case 'CHANGE_TAB':
+        return {
+          title: action.value,
+        }
+      default:
+        return state;
+    }
+  }
+
+  var store = Redux.createStore(Redux.combineReducers({
+    drawer: DrawerReducer,
+    main: MainReducer,
+  }), Main, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+</script>
 
 <body>
   <wc-drawer></wc-drawer>
