@@ -5,6 +5,7 @@
   <title>Web Components demo</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
   <style>
     * {
       font-family: Arial, Helvetica, sans-serif;
@@ -24,14 +25,13 @@
   <script src="components/data-binding.component.js"></script>
   <script src="components/list-filtering.component.js"></script>
   <script src="components/drawer.component.js"></script>
+  <script src="components/main.component.js"></script>
 </head>
 <script></script>
 
 <body>
   <wc-drawer></wc-drawer>
-  <main>
-    <button onclick="(function(){document.querySelector('wc-drawer').open();})()">Show Drawer</button>
-  </main>
+  <wc-main></wc-main>
 </body>
 
 </html>

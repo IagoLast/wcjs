@@ -9,14 +9,14 @@ class WcDrawer extends WC {
 
   get initialState() {
     return {
-      visible: true
+      visible: false
     }
   }
 
   get template() {
     return `
       ${this.insertStyle()}
-      <header> Web Components </header>
+      <header> Menu </header>
       <nav>
         <a href="#"> Home </a>
         <a href="#"> About </a>
