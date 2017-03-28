@@ -9,6 +9,12 @@
     * {
       font-family: Arial, Helvetica, sans-serif;
     }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
   </style>
   <!--Load "library"-->
   <script src="wc.js"></script>
@@ -17,18 +23,15 @@
   <script src="components/clock.component.js"></script>
   <script src="components/data-binding.component.js"></script>
   <script src="components/list-filtering.component.js"></script>
-
-
+  <script src="components/drawer.component.js"></script>
 </head>
+<script></script>
 
 <body>
-  <hello-world></hello-world>
-  <hr>
-  <wc-clock></wc-clock>
-  <hr>
-  <data-binding></data-binding>
-  <hr>
-  <list-filtering></list-filtering>
+  <wc-drawer></wc-drawer>
+  <main>
+    <button onclick="(function(){document.querySelector('wc-drawer').open();})()">Show Drawer</button>
+  </main>
 </body>
 
 </html>
