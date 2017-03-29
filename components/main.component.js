@@ -53,19 +53,14 @@ class Main extends WC {
       <nav>
           <button onclick="(function(){document.querySelector('wc-drawer').open();})()">Show Drawer</button>
       </nav>
-      <section home style="display:none">
-        <h1> Home </h1>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </p>
-
+      <section clock style="display:none">
+        <wc-clock></wc-clock>
       </section>
-      <section about style="display:none">
-        <h1> About </h1>
-         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum about.  </p>
+      <section binding style="display:none">
+        <data-binding></data-binding>
       </section>
-      <section blog style="display:none">
-        <h1> Blog </h1>
-         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum blog.  </p>
+      <section filtering style="display:none">
+        <list-filtering></list-filtering>
       </section>
     `;
   }

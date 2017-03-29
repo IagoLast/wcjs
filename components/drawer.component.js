@@ -16,9 +16,9 @@ class WcDrawer extends WC {
       ${this.insertStyle()}
       <header> Menu </header>
       <nav>
-        <a home href="#"> Home </a>
-        <a about href="#"> About </a>
-        <a blog href="#"> Blog </a>
+        <a clock href="#"> Clock </a>
+        <a binding href="#"> Data Binding </a>
+        <a filtering href="#"> List Filtering </a>
         <br>
         <a href="#"> Close </a>
       </nav>
@@ -87,22 +87,22 @@ class WcDrawer extends WC {
     this.content = this.template;
     this.render();
     this.content.querySelector('a:last-child').addEventListener('click', this.close.bind(this));
-    this.content.querySelector('a[home]').addEventListener('click', () => {
+    this.content.querySelector('a[clock]').addEventListener('click', () => {
       store.dispatch({
         type: 'CHANGE_TAB',
-        value: 'home'
+        value: 'clock'
       })
     });
-    this.content.querySelector('a[about]').addEventListener('click', () => {
+    this.content.querySelector('a[binding]').addEventListener('click', () => {
       store.dispatch({
         type: 'CHANGE_TAB',
-        value: 'about'
+        value: 'binding'
       });
     });
-    this.content.querySelector('a[blog]').addEventListener('click', () => {
+    this.content.querySelector('a[filtering]').addEventListener('click', () => {
       store.dispatch({
         type: 'CHANGE_TAB',
-        value: 'blog'
+        value: 'filtering'
       })
     });
   }
