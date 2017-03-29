@@ -19,6 +19,8 @@ class WcDrawer extends WC {
         <a clock href="#"> Clock </a>
         <a binding href="#"> Data Binding </a>
         <a filtering href="#"> List Filtering </a>
+        <a href="/test.html"> Testing Example </a>
+
         <br>
         <a href="#"> Close </a>
       </nav>

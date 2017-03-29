@@ -20,6 +20,7 @@ class ListFiltering extends WC {
 
   connectedCallback() {
     this.content = this.template; // Initial render
+    this.render();
     this.content.querySelector('input').addEventListener('input', this.onInput.bind(this));
   }
 
@@ -31,7 +32,6 @@ class ListFiltering extends WC {
 
   render() {
     let filtered = this.languages.filter(item => item.includes(this.state.query.toLowerCase()));
-    console.log(filtered);
     this.content.querySelector('ul').innerHTML = filtered.map(item => `<li>${item}</li>`).join('');
   }
 }
